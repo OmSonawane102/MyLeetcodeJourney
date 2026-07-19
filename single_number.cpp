@@ -48,8 +48,8 @@ using namespace std;
 
 int single_number(vector<int>& nums){
     int xorResult = 0;
-    for (int i = 0; i < nums.size(); i++){
-       xorResult ^= nums[i];
+    for(int val : nums){
+        xorResult ^= val;
     }
     return xorResult;
 }
