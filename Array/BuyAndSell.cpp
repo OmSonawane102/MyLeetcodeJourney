@@ -2,9 +2,13 @@
 #include<vector>
 using namespace std;
 
+
+/* 
+    Buy stock at lowest and sell at highest: 
+*/
 int maxProfit(vector<int>& prices){
 
-    int maxProfit = 0, bestBuy = prices[0];
+    int maxProfit = 0, bestBuy = prices[0]; // let first element be bestbuy
 
     for(int i = 1; i < prices.size(); i++){
 
