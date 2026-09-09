@@ -1,28 +1,38 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-vector<int> productOfArrayExceptSelf(vector<int>& nums){
-    int product = 1;
-    vector<int> result;
-    for(int i = 0; i < nums.size(); i++){
-        for(int j = 0; j < nums.size(); j++){
-            if(j == i){
-                continue;
-            }
-            product *= nums[j];
-        }
-        result.push_back(product);
-        product = 1;
+// Optimized Approach :
+
+vector<int> productOfArrayExceptSelf(vector<int> &nums){
+    int n = nums.size();
+    vector<int> ans(n, 1);
+    vector<int> prefix(n, 1);
+    vector<int> suffix(n, 1);
+
+    // Prefix :
+    for (int i = 1; i < n; i++){
+        prefix[i] = prefix[i - 1] * nums[i - 1];
     }
-    return result;
+
+    // Suffix :
+    for (int i = n-2; i >= 0; i--){
+        suffix[i] = suffix[i+1] * nums[i+1];
+    }
+
+    // Answer :
+    for(int i = 0; i < n; i++){
+        ans[i] = prefix[i] * suffix[i];
+    }
+
+    return ans;
 }
 
 int main(){
 
-    vector<int> nums = {1,2,3,4};
+    vector<int> nums = {1, 2, 3, 4};
     vector<int> result = productOfArrayExceptSelf(nums);
-    for(int i = 0; i < result.size(); i++){
+    for (int i = 0; i < result.size(); i++){
         cout << result[i] << " ";
     }
     return 0;
