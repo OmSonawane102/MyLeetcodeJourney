@@ -19,7 +19,7 @@ int MaxOfArray(vector<int>& arr) {
     return ans;
 }
 
-int SumOfArrayElements(vector<int> arr) {
+int SumOfArrayElements(vector<int>& arr) {
     int ans = 0;
     for(int i = 0; i < arr.size(); i++) {
         ans += arr[i];
