@@ -21,3 +21,9 @@ A structured repository containing my solutions to various Data Structures and A
 ├── Trees/
 ├── Graphs/
 └── DynamicProgramming/
+
+```
+---
+
+## License
+This repo is for personal learning purposes. Feel free to reference it. Majority of the questions are from Leetcode.
