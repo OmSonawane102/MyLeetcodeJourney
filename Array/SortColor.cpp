@@ -1,26 +1,21 @@
 #include <iostream>
 
-
+// Most Optimal Approach : Dutch National Flag Algorithm. T = O(n) with single pass, S = O(1)
 void SortArr(int nums[], int n) {
-        int countOfOne = 0, countOfZero = 0, countOfTwo = 0;
-        for(int i = 0; i < n; i++) {
-            if(nums[i] == 0) countOfZero++;
-            if(nums[i] == 1) countOfOne++;
-            if(nums[i] == 2) countOfTwo++;
+    int mid = 0, low = 0, high = n - 1;
+
+    while(mid <= high) {
+        if(nums[mid] == 0) {
+            std::swap(nums[low], nums[mid]);
+            mid++;
+            low++;
+        } else if(nums[mid] == 1) {
+            mid++;
+        } else {
+            std::swap(nums[mid], nums[high]);
+            high--;
         }
-        int index = 0;
-        for(int i = 0; i < countOfZero; i++) {
-            nums[index] = 0;
-            index++;
-        }
-        for(int i = 0; i < countOfOne; i++) {
-            nums[index] = 1;
-            index++;
-        }
-        for(int i = 0; i < countOfTwo; i++) {
-            nums[index] = 2;
-            index++;
-        }
+    }
     return;
 }
 
